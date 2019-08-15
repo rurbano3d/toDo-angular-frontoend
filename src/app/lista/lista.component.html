@@ -1,0 +1,24 @@
+<div class="col-md-12" style="margin:2%;">
+    <button type="button" class="btn btn-success" routerLink='/adicionar'>Adicionar</button>
+</div>
+<div class="col-md-12">
+    <table class="table table-hover table-responsive-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Finalizada</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lista of listamodel | async">
+                <td>{{lista.nome}}</td> 
+                <td *ngIf="lista.status == false"><a (click)="onCheck(lista)"><i class="fas fa-check-square" ></i></a></td>
+                <td *ngIf="lista.status == true"><a (click)="onCheck(lista)"><i class="fas fa-square" ></i></a></td>
+                <td><a (click)="onEditar(lista.id)"><i class="fas fa-edit" ></i></a></td>
+                <td><a (click)="onDeletar(lista.id)"><i class="fas fa-times" ></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
